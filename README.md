@@ -1,7 +1,7 @@
 # COSC2759 Assignment 1
 ## Notes App - CI Pipeline
-- Full Name/Names: **FILL IN**
-- Student ID/IDs: **FILL IN**
+- Full Name/Names: Yusuf Arpaci
+- Student ID/IDs: s4012930
 
 ### Guidance (remove this section before final submission)
 
