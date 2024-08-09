@@ -31,3 +31,9 @@ jobs:
       run: |
         cd src
         npm run test-lint
+
+    - name: Run Unit Tests
+    # Running the Unit Tests for the project
+      run: |
+        cd src
+        npm run test-unit
