@@ -1,8 +1,19 @@
+jest.setTimeout(30000); // 30 second timeout
+
 const app = require('../../app')
 const supertest = require('supertest')
 const req = supertest(app)
 const Note = require("../../models/note")
+const mongoose = require('mongoose')
 
+// Connect to the database before running the tests
+beforeAll(async () => {
+    // Connect to the database
+    mongoose.connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    });
+});
 // Integration Tests programmatically test the API used by the application
 
 describe('Add Note', () => {
@@ -21,7 +32,9 @@ describe('Add Note', () => {
         expect(res.headers['location']).toEqual('/')
 
         // Check if the note was successfully added to the database
-        expect(await Note.exists({ title: "[INTEGRATION TEST] New Note" })).toBe(true)
+        const noteReal = await Note.exists({ title: "[INTEGRATION TEST] New Note" })
+        expect(noteReal).toBeTruthy();
+
 
     })
 })
