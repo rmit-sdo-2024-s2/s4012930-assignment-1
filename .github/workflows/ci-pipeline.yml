@@ -1,4 +1,13 @@
 name: Notes Application CI Pipeline
-# create a CI pipeline based on the assignment specification
-# remember to commit often
+
+
+on:
+    push:
+      branches: [main]
+    pull_request:
+      branches: [main] 
+      
+jobs:
+  code-quality-check:
+    runs-on: ubuntu-latest # Runs on latest version of Ubuntu!
 
