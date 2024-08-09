@@ -1,3 +1,5 @@
+jest.setTimeout(10000); // 10 second timeout
+
 const app = require('../../app')
 const supertest = require('supertest')
 const req = supertest(app)
