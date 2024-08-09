@@ -10,14 +10,24 @@ describe('mockingoose', () => {
     })
 
     describe("Test Both Fields Are Set", () => {
-        it('Validate Model', async () => {
+        it('Throw validation error (Description Empty)', async () => {
             const todo = new Note({
                 title: "Task Note",
-                description: "" // "This can't be blank"
+                description: "" // "invalid description, it should be at least 1 character long"
             });
 
             const result = await todo.validateSync();
-            expect(result).toBe(undefined);
+            expect(result.errors.description).toBeDefined(); // expect an error
+        });
+
+        it('pass validation (Both Fields Are Set)', async () => {
+            const todo = new Note({
+                title: "Task Note",
+                description: "This is a description!" // "valid description with at least 1 character"
+            });
+
+            const result = await todo.validateSync();
+            expect(result).toBeUndefined(); // expect no error
         });
     })
 })
