@@ -11,3 +11,6 @@ jobs:
   code-quality-check:
     runs-on: ubuntu-latest # Runs on latest version of Ubuntu!
 
+    steps:
+    - name: Checkout Repository Code  
+      uses: actions/checkout@v2 # Checkout the repository code
