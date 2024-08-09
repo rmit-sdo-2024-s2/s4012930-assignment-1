@@ -37,3 +37,9 @@ jobs:
       run: |
         cd src
         npm run test-unit
+
+    - name: Integration Testing
+    # Running the Integration Tests for project
+      run: |
+        cd src
+        npm run test-integration
