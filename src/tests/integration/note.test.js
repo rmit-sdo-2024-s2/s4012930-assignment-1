@@ -8,8 +8,10 @@ const mongoose = require('mongoose')
 
 // Connect to the database before running the tests
 beforeAll(async () => {
-    mongoose.connection.once('open', () => {
-        console.log('Connected to MongoDB');
+    // Connect to the database
+    mongoose.connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
     });
 });
 // Integration Tests programmatically test the API used by the application
