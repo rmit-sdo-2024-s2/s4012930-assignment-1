@@ -17,6 +17,11 @@ jobs:
 
     - name: Setup Node.js Environment
       uses: actions/setup-node@v2 # Setup Node.js environment
+      with:
+        node-version: '18'  # Use Node.js 18 (latest version that is stable)
 
     - name: Install Dependencies (Project)
-      run: npm install # Install project dependencies
+     # Install dependencies for the project and go to the src directory
+      run: |
+        cd src
+        npm install
