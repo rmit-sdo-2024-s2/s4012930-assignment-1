@@ -25,3 +25,9 @@ jobs:
       run: |
         cd src
         npm install
+
+    - name: Run Linting Quality Check
+    # Run linting and testing for project
+      run: |
+        cd src
+        npm run test-lint
