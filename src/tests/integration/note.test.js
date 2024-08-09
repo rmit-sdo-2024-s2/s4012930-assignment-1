@@ -4,7 +4,15 @@ const app = require('../../app')
 const supertest = require('supertest')
 const req = supertest(app)
 const Note = require("../../models/note")
+const mongoose = require('mongoose')
 
+// Connect to the database before running the tests
+beforeAll(async () => {
+    mongoose.connection.once('open', () => {
+        console.log('Connected to MongoDB');
+    }
+    )
+});
 // Integration Tests programmatically test the API used by the application
 
 describe('Add Note', () => {
