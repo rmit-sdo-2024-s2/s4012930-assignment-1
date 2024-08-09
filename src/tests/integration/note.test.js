@@ -21,7 +21,9 @@ describe('Add Note', () => {
         expect(res.headers['location']).toEqual('/')
 
         // Check if the note was successfully added to the database
-        expect(await Note.exists({ title: "[INTEGRATION TEST] New Note" })).toBe(true)
+        const noteReal = await Note.exists({ title: "[INTEGRATION TEST] New Note" })
+        expect(noteReal).toBeTruthy();
+
 
     })
 })
